@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
 
 const readDoorsFromLocalStorage = (): Record<DoorNumbers[number], Door> => {
-  const doors = localStorage.getItem("doors");
+  const doors = localStorage.getItem("doors-2024");
   if (doors) return JSON.parse(doors);
 
   return {
@@ -33,34 +33,42 @@ const readDoorsFromLocalStorage = (): Record<DoorNumbers[number], Door> => {
     "24": { door: "24", opened: false },
   };
 };
+// other videos
+// "_fX4qoruQik", // Venetian Snares - Szamar madar
+// "SI76A2-LRe4", // Eraplee Noisewall Orchestra - Rave Of All Dead
+// "yQr81GnKEIs", // Civilizing People · Nero's Day At Disneyland
+// "pB-G3_k-ypg", // klangphonics harry potter techno
+// "T0-rj9kIyb4", // Anton Webern - Two Songs
+// const foliageColors = ["#506a63", "#517467", "#517f6b", "#50896f", "#4f9372", "#4d9e76"];
+// const truncColors = ["#754845", "#7e4d46", "#875247", "#905847", "#9a5d48", "#a36248"];
 
 export const useAppStore = defineStore("app", () => {
   const doorStates = ref<Record<DoorNumbers[number], Door>>(readDoorsFromLocalStorage());
   const doorVideoIds = ref<Record<DoorNumbers[number], string>>({
-    "1": "dQw4w9WgXcQ",
-    "2": "dQw4w9WgXcQ",
-    "3": "dQw4w9WgXcQ",
-    "4": "dQw4w9WgXcQ",
-    "5": "dQw4w9WgXcQ",
-    "6": "dQw4w9WgXcQ",
-    "7": "dQw4w9WgXcQ",
-    "8": "dQw4w9WgXcQ",
-    "9": "dQw4w9WgXcQ",
-    "10": "dQw4w9WgXcQ",
-    "11": "dQw4w9WgXcQ",
-    "12": "dQw4w9WgXcQ",
-    "13": "dQw4w9WgXcQ",
-    "14": "dQw4w9WgXcQ",
-    "15": "dQw4w9WgXcQ",
-    "16": "dQw4w9WgXcQ",
-    "17": "dQw4w9WgXcQ",
-    "18": "dQw4w9WgXcQ",
-    "19": "dQw4w9WgXcQ",
-    "20": "dQw4w9WgXcQ",
-    "21": "dQw4w9WgXcQ",
-    "22": "dQw4w9WgXcQ",
-    "23": "dQw4w9WgXcQ",
-    "24": "dQw4w9WgXcQ",
+    "1": "AOwH4C9qESI", // MEZERG - How to play piano
+    "2": "mqWuZH-PWt4", // 【炎上動画】交番の前で堂々と踊ってみた結果 #chinesedance #中国ダンス #ダンス動画
+    "3": "UbQgXeY_zi4", // Caravan Palace - Lone Digger
+    "4": "Nyx6SBixRE8", // Sleepless Night 🌙 [lofi hip hop]
+    "5": "rAWIfId-17I", // Klangphonics - Sibling Techno
+    "6": "l-rlFaSBLg8", // MEZERG - WELCOME THEREMIN
+    "7": "5X9_M0VBfgw", // KLANGPHONICS - techno without a computer
+    "8": "PBDTTOJvS1Y", // Harry Spotter 2 - The forbidden weight
+    "9": "H8_BAoVwoaM", // Villalobos - Fizheuer Zieheuer
+    "10": "bixtQAq2LzE", // KLANGPHONICS - Melodic Techno Set | Live from the Black Forest
+    "11": "FbJ63spk48s", // Venetian Snares - Hajnal
+    "12": "H8qrbwfhtn4", // Klangphonics - When Germans do Techno
+    "13": "iCRmTiMZap4", // MEZERG & WAAGAL - FACTORY LIVE 4K
+    "14": "sYKEiAIdwg8", // WHOLETONE REVOLUTION / Jankó - Darn That Dream
+    "15": "ajM4vYCZMZk", // Ennio Morricone - The Ecstasy of Gold - Theremin & Voice
+    "16": "IvUU8joBb1Q", // Wintergatan - Marble Machine
+    "17": "RaZ3nGTnmhc", // Daisy La Fontaine - Bijoux Bisous
+    "18": "03_SDwrCFDk", // The Ropes Our Nights Were Laid Across, Pulled Taut · Lauren Bousfield
+    "19": "G5VMenGzgFk", // Klangphonics - "Perfect Opposure" is out now!
+    "20": "n5ZNdSh2_WM", // Child Protective Services Theme Song · Nero's Day At Disneyland
+    "21": "O7RG-B6N1Vw", // Lonely Days ☔ [sad lofi]
+    "22": "OF_x-X8Fv6U", // Lauren Bousfield - Cracknight (Official Video)
+    "23": "w2eW6jezNfU", // Harry Spotter - The boy who lifted
+    "24": "q0EYJZAiIJU", // MEZERG - GARDEN JAM + WEDDING
   });
 
   const foliageColors = ref<Record<DoorNumbers[number], string>>({
@@ -123,13 +131,13 @@ export const useAppStore = defineStore("app", () => {
   watch(
     doorStates,
     () => {
-      localStorage.setItem("doors", JSON.stringify(doorStates.value));
+      localStorage.setItem("doors-2024", JSON.stringify(doorStates.value));
     },
     { deep: true },
   );
 
   const canOpenDoor = (door: DoorNumbers[number]): boolean => {
-    if (doorNames.value.length > 0) return true;
+    // if (doorNames.value.length > 0) return true;
     if (!doorStates.value[door]) return false;
 
     // check if a door can be opened by date

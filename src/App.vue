@@ -1,5 +1,46 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
+
+const snowConfig = {
+  particles: {
+    color: {
+      value: "#fff",
+    },
+    move: {
+      direction: "bottom",
+      enable: true,
+      outModes: "out",
+      speed: 1.25,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+      },
+      value: 900,
+    },
+    opacity: {
+      value: 0.9,
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: 4,
+    },
+    wobble: {
+      enable: true,
+      distance: 10,
+      speed: 10,
+    },
+    zIndex: {
+      value: {
+        min: 0,
+        max: 100,
+      },
+    },
+  },
+};
 </script>
 
 <template>
@@ -8,7 +49,7 @@ import { RouterView } from "vue-router";
       <component :is="Component" />
     </transition>
   </RouterView>
-  <div class="snow"></div>
+  <vue-particles id="tsparticles" :options="snowConfig" />
 </template>
 
 <style lang="scss">
