@@ -60,8 +60,8 @@ const videoId = computed(() => appStore.doorVideoIds[door.value]);
 }
 
 iframe {
-  width: calc(100vw - 120px);
-  height: calc(100vh - 120px);
+  width: calc(100dvw - 120px);
+  height: calc(100dvh - 120px);
   border: none;
   border-radius: 20px;
 }
