@@ -137,7 +137,10 @@ export const useAppStore = defineStore("app", () => {
   );
 
   const canOpenDoor = (door: DoorNumbers[number]): boolean => {
-    // if (doorNames.value.length > 0) return true;
+    // check if debug=true is set via URL parameter
+    const debug = new URLSearchParams(window.location.search).get("debug");
+    if (debug === "true") return true;
+
     if (!doorStates.value[door]) return false;
 
     // check if a door can be opened by date
